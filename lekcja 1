@@ -1,0 +1,21 @@
+import numpy as np
+
+#zad1
+x1 = np.linspace(5, 5, 50)
+print(x1)
+
+#zad2
+x2 = np.arange(25).reshape(5, 5)
+print(x2)
+
+#zad3
+x3 = np.linspace(10, 50, 21)
+print(x3)
+
+#zad4
+x4 = np.eye(5) * 8
+print(x4)
+
+#zad5
+x5 = np.arange(100) * 0.01
+print(x5.reshape(10, 10))
