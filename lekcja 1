@@ -27,7 +27,8 @@ x6 = np.linspace(0, 1, 50)
 print(x6)
 
 #zad7
-
+x7 = x2[2:5,1:5]
+print(x7)
 
 #zad8
 x8 = np.array([x2[0,-1], x2[1,-1], x2[2,-1]]).reshape(3, 1)
