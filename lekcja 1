@@ -6,6 +6,7 @@ print(x1)
 
 #zad2
 x2 = np.arange(25).reshape(5, 5)
+x2 = x2 + 1
 print(x2)
 
 #zad3
@@ -18,4 +19,23 @@ print(x4)
 
 #zad5
 x5 = np.arange(100) * 0.01
-print(x5.reshape(10, 10))
+x5 = x5.reshape(10, 10)
+print(x5)
+
+#zad6
+x6 = np.linspace(0, 1, 50)
+print(x6)
+
+#zad7
+
+
+#zad8
+x8 = np.array([x2[0,-1], x2[1,-1], x2[2,-1]]).reshape(3, 1)
+print(x8)
+
+#zad9
+rozmiar = x2.shape
+x9 = x2[-1,:].sum() + x2[rozmiar[1]-2,:].sum()
+print(x9)
+
+#zad10
