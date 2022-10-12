@@ -39,3 +39,10 @@ x9 = x2[-1,:].sum() + x2[rozmiar[1]-2,:].sum()
 print(x9)
 
 #zad10
+#zad10
+def losowy_tensor():
+    tmp = np.random.randint(1, 10 ,(1, 2))
+    return np.random.randint(1, 100, (tmp[0][0], tmp[0][1]))
+
+print("Losowa macierz")
+print(losowy_tensor())
