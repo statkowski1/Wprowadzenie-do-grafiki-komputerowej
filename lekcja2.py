@@ -43,5 +43,45 @@ class BaseImage:
             return 'Błąd, argument może być tylko 0, 1 lub 2!'
         #metoda zwracajaca warstwe o wskazanym indeksie
         pass
-        
+    
+    def to_hsv(self) -> 'BaseImage':
+        R, G, B = np.squeeze(np.dsplit(self.data, self.data.shape[-1]))
+        M = max(R, G, B)
+        m = min(R, G, B)
+        V = M / 255
+        if(M>0):
+            S = 1 - m / M
+        else:
+            S = 0
+        if(G >= B):
+            return 1/math.cos(((R - G/2 -B/2)/(math.sqrt(R*R + G*G + B*B - R*G - R*B -G*B))))
+        else:
+            return 360 - (1/math.cos((R - G/2 - B/2)/(math.sqrt(R*R + G*G + B*B - R*G - R*B - G*B))))
+        #metoda dokonujaca konwersji obrazu w atrybucie data do modelu hsv
+        #metoda zwraca nowy obiekt klasy image zawierajacy obraz w docelowym modelu barw
+        pass
+
+    def to_hsi(self) -> 'BaseImage':
+
+        #metoda dokonujaca konwersji obrazu w atrybucie data do modelu hsi
+        #metoda zwraca nowy obiekt klasy image zawierajacy obraz w docelowym modelu barw
+        pass
+
+    def to_hsl(self) -> 'BaseImage':
+
+        #metoda dokonujaca konwersji obrazu w atrybucie data do modelu hsl
+        #metoda zwraca nowy obiekt klasy image zawierajacy obraz w docelowym modelu barw
+        pass
+
+    def to_rgb(self) -> 'BaseImage':
+
+        #metoda dokonujaca konwersji obrazu w atrybucie data do modelu rgb
+        #metoda zwraca nowy obiekt klasy image zawierajacy obraz w docelowym modelu barw
+        pass
+
+x = BaseImage('lena.jpg')
+#x.show_img()
+x.save_img('f.png')
+print(x.get_layer(0))
+x.to_hsv()
         
