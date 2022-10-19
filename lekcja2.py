@@ -22,7 +22,7 @@ class BaseImage:
         pass
 
     def save_img(self, path: str) -> None:
-        imsave('plik.jpg', self.data)
+        imsave(path, self.data)
         #metoda zapisujaca obraz znajdujacy sie w atrybucie data do pliku
         pass
 
