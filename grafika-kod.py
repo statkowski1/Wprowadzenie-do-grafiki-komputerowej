@@ -438,18 +438,25 @@ class ImageComparison(BaseImage):
         X2B = X2[:, :, 1]
         X2C = X2[:, :, 2]
         I2 = ((X2A + X2B + X2C) / 3).ravel()
+
+        X1:np.ndarray = np.zeros(256)
+        X2: np.ndarray = np.zeros(256)
+        for i in range(0, I1.shape[0]):
+            X1[I1[i].astype('int64')] += 1
+        for i in range(0, I2.shape[0]):
+            X2[I2[i].astype('int64')] += 1
         #MSE
         if(method == 0):
             MSE:float = 0
-            for i in range(0, I1.shape[0]):
-                MSE += (I1[i] - I2[i]) * (I1[i] - I2[i])
+            for i in range(0, X1.shape[0]):
+                MSE += (X1[i] - X2[i]) * (X1[i] - X2[i])
             MSE = MSE / 256
             return MSE
         #RMSE
         elif(method == 1):
             RMSE:float = 0
-            for i in range(0, I1.shape[0]):
-                RMSE += (I1[i] - I2[i]) * (I1[i] - I2[i])
+            for i in range(0, X1.shape[0]):
+                RMSE += (X1[i] - X2[i]) * (X1[i] - X2[i])
             RMSE = np.sqrt(RMSE / 256)
             return RMSE
 
@@ -548,8 +555,12 @@ y = GrayScaleTransform('lena.jpg')
 # print(z.compare_to(z2, 0))
 # print(z.compare_to(z3, 0))
 
-z.to_cumulated()
+# z.to_cumulated()
 
 # x.to_hsv()
 # x.to_rgb()
 # x.show_img()
+
+c1 = Image('lena.jpg')
+c2 = Image('n.jpg')
+print(c1.compare_to(c2, 0))
