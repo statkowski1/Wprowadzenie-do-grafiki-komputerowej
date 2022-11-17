@@ -162,14 +162,6 @@ class BaseImage:
         # metoda zwraca nowy obiekt klasy image zawierajacy obraz w docelowym modelu barw
         pass
 
-    def wiedzma(self) -> 'BaseImage':
-        R = self.data[:, :, 0].astype('float32')
-        GB: np.ndarray = np.zeros(R.shape)
-        self.data = R.astype('uint8')
-        imshow(self.data, cmap="hot")
-        plt.show()
-        return np.stack((R, GB, GB), axis=2).astype('uint8')
-
     def picture_plus1(self) -> 'BaseImage':
         X = self.data
         X = X + 1
